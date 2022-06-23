@@ -2,11 +2,11 @@ package sdk
 
 import (
 	"fmt"
-	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
-	"github.com/galaxy-book/feishu-sdk-golang/core/model/vo"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/http"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
+	"github.com/yangjishen/feishu-sdk-golang/core/consts"
+	"github.com/yangjishen/feishu-sdk-golang/core/model/vo"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/http"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/json"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/log"
 )
 
 //CreateCalendarV4 创建日历v4版本 https://open.feishu.cn/document/ukTMukTMukTM/uUDM3YjL1AzN24SNwcjN

@@ -1,8 +1,8 @@
 package sdk
 
 import (
-	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
+	"github.com/yangjishen/feishu-sdk-golang/core/consts"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/json"
 	"testing"
 )
 

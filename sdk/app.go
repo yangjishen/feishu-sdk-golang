@@ -1,11 +1,11 @@
 package sdk
 
 import (
-	"github.com/galaxy-book/feishu-sdk-golang/core/consts"
-	"github.com/galaxy-book/feishu-sdk-golang/core/model/vo"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/http"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
+	"github.com/yangjishen/feishu-sdk-golang/core/consts"
+	"github.com/yangjishen/feishu-sdk-golang/core/model/vo"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/http"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/json"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/log"
 )
 
 //校验应用管理员 https://open.feishu.cn/document/ukTMukTMukTM/uITN1EjLyUTNx4iM1UTM
