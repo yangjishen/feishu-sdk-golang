@@ -361,6 +361,7 @@ type AuthenAccessTokenData struct {
 	AvatarMiddle     string `json:"avatar_middle"`
 	AvatarBig        string `json:"avatar_big"`
 	OpenId           string `json:"open_id"`
+	UnionId          string `json:"union_id"`
 	Email            string `json:"email"`
 	UserId           string `json:"user_id"`
 	Mobile           string `json:"mobile"`
