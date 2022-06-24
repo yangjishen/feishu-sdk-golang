@@ -1,6 +1,7 @@
 package sdk
 
 import (
+	o_json "encoding/json"
 	"github.com/yangjishen/feishu-sdk-golang/core/consts"
 	"github.com/yangjishen/feishu-sdk-golang/core/model/vo"
 	"github.com/yangjishen/feishu-sdk-golang/core/util/http"
@@ -112,7 +113,10 @@ func AuthenAccessToken(appAccessToken string, grantType string, code string) (*v
 		return nil, err
 	}
 	respVo := &vo.AuthenAccessTokenResp{}
-	json.FromJsonIgnoreError(respBody, respVo)
+	err = o_json.Unmarshal([]byte(respBody), respVo)
+	if err != nil {
+		return nil, err
+	}
 	return respVo, nil
 }
 
