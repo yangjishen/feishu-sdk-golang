@@ -207,6 +207,8 @@ type UserDetailInfoV3 struct {
 	Name            string       `json:"name"`
 	NamePy          string       `json:"name_py"`
 	EnName          string       `json:"en_name"`
+	NickName        string       `json:"nickname"`
+	MobileVisible   bool         `json:"mobile_visible"`
 	EmployeeId      string       `json:"employee_id"`
 	EmployeeNo      string       `json:"employee_no"`
 	OpenId          string       `json:"open_id"`
@@ -230,6 +232,8 @@ type UserDetailInfoV3 struct {
 	Positions       []Position   `json:"positions"`
 	Orders          []Order      `json:"orders"`
 	CustomAttrs     []CustomAttr `json:"custom_attrs"`
+	EnterpriseEmail string       `json:"enterprise_email"`
+	JobTitle        string       `json:"job_title"`
 }
 
 type CustomAttr struct {
@@ -238,9 +242,19 @@ type CustomAttr struct {
 	Value CustomAttrValue `json:"value"`
 }
 
+type GenericUserValue struct {
+	Id   string `json:"id"`
+	Type int    `json:"type"`
+}
+
 type CustomAttrValue struct {
-	Url   string `json:"url"`
-	PcUrl string `json:"pc_url"`
+	Url         string           `json:"url"`
+	PcUrl       string           `json:"pc_url"`
+	Text        string           `json:"text"`
+	OptionValue string           `json:"option_value"`
+	Name        string           `json:"name"`
+	PictureUrl  string           `json:"picture_url"`
+	GenericUser GenericUserValue `json:"generic_user"`
 }
 
 type Order struct {
@@ -267,6 +281,8 @@ type UserStatus struct {
 	IsFrozen    bool `json:"is_frozen"`
 	IsResigned  bool `json:"is_resigned"`
 	IsActivated bool `json:"is_activated"`
+	IsExited    bool `json:"is_exited"`
+	IsUnjoin    bool `json:"is_unjoin"`
 }
 
 type Entry struct {
@@ -315,6 +331,15 @@ type GetUserBatchError struct {
 	Id   string `json:"id"`
 	Code int    `json:"code"`
 	Msg  string `json:"msg"`
+}
+
+type GetUserDetailV3RespData struct {
+	User UserDetailInfoV3 `json:"user"`
+}
+
+type GetUserDetailV3Resp struct {
+	CommonVo
+	Data GetUserDetailV3RespData `json:"data"`
 }
 
 type GetUsersV3Resp struct {

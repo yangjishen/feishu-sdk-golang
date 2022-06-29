@@ -54,3 +54,21 @@ func (t Tenant) BatchGetId(emails []string, mobiles []string) (*vo.BatchGetIdRes
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+func (t Tenant) GetUserDetailV3(appAccessToken string, id string, userIdType string, departmentIdType string) (*vo.GetUserDetailV3Resp, error) {
+	queryParams := map[string]interface{}{}
+	if userIdType != "" {
+		queryParams["user_id_type"] = userIdType
+	}
+	if departmentIdType != "" {
+		queryParams["department_id_type"] = departmentIdType
+	}
+	respBody, err := http.Get(fmt.Sprintf(consts.ApiUserDetailV3, id), queryParams, http.BuildTokenHeaderOptions(appAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetUserDetailV3Resp{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}

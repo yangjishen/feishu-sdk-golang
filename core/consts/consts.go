@@ -58,6 +58,8 @@ const (
 	ApiUserBatchGetV2 = "https://open.feishu.cn/open-apis/contact/v2/user/batch_get"
 	//获取用户列表v3
 	ApiUserListV3 = "https://open.feishu.cn/open-apis/contact/v3/users"
+	//获取用户详情v3
+	ApiUserDetailV3 = "https://open.feishu.cn/open-apis/contact/v3/users/%s"
 
 	//////////////////机器人发送消息
 	//机器人发送消息
