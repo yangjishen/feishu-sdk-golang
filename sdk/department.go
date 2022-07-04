@@ -151,6 +151,34 @@ func (t Tenant) GetDepartmentUserListV2(departmentId string, pageToken string, p
 	return respVo, nil
 }
 
+//获取部门用户列表 https://open.feishu.cn/open-apis/contact/v3/users/find_by_department
+func (t Tenant) GetDepartmentUserListV3(userIdType string, departmentIdType string, departmentId string, pageSize int, pageToken string) (*vo.GetDepartmentUserListV3RespVo, error) {
+	queryParams := map[string]interface{}{
+		"department_id": departmentId,
+	}
+	if userIdType != "" {
+		queryParams["user_id_type"] = userIdType
+	}
+	if departmentIdType != "" {
+		queryParams["department_id_type"] = departmentIdType
+	}
+	if pageToken != "" {
+		queryParams["page_token"] = pageToken
+	}
+	if pageSize > 0 {
+		queryParams["page_size"] = pageSize
+	}
+
+	respBody, err := http.Get(consts.ApiDepartmentUserListV3, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetDepartmentUserListV3RespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 //获取部门用户详情列表 https://open.feishu.cn/document/ukTMukTMukTM/uYzN3QjL2czN04iN3cDN?lang=zh-CN
 func (t Tenant) GetDepartmentUserDetailList(departmentId string, offset, pageSize int, fetchChild bool) (*vo.GetDepartmentUserDetailListRespVo, error) {
 	queryParams := map[string]interface{}{

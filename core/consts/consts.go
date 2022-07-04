@@ -49,6 +49,10 @@ const (
 	ApiDepartmentUserList = "https://open.feishu.cn/open-apis/contact/v1/department/user/list"
 	//获取部门用户列表v2
 	ApiDepartmentUserListV2 = "https://open.feishu.cn/open-apis/contact/v2/department/user/list"
+
+	//获取部门用户列表v3
+	ApiDepartmentUserListV3 = "https://open.feishu.cn/open-apis/contact/v3/users/find_by_department"
+
 	//获取用户详情
 	ApiDepartmentUserDetailList = "https://open.feishu.cn/open-apis/contact/v1/department/user/detail/list"
 	//获取用户详情v2

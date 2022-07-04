@@ -10,6 +10,11 @@ type GetDepartmentUserListV2RespVo struct {
 	Data *GetDepartmentUserListV2RespVoData `json:"data"`
 }
 
+type GetDepartmentUserListV3RespVo struct {
+	CommonVo
+	Data *GetDepartmentUserListV3RespVoData `json:"data"`
+}
+
 type GetDepartmentUserDetailListRespVo struct {
 	CommonVo
 	Data *GetDepartmentUserDetailListRespVoData `json:"data"`
@@ -29,6 +34,51 @@ type GetDepartmentUserListV2RespVoData struct {
 	HasMore   bool             `json:"has_more"`
 	PageToken string           `json:"page_token"`
 	UserList  []UserRestInfoVo `json:"users"`
+}
+
+type GetDepartmentUserListV3RespVoData struct {
+	HasMore   bool               `json:"has_more"`
+	PageToken string             `json:"page_token"`
+	Items     []UserRestV3InfoVo `json:"items"`
+}
+
+type UserRestV3InfoVo struct {
+	Avatar          UserRestV3Avatar `json:"avatar"`
+	City            string           `json:"city"`
+	Country         string           `json:"country"`
+	DepartmentIds   []string         `json:"department_ids"`
+	Description     string           `json:"description"`
+	Email           string           `json:"email"`
+	EmployeeNo      string           `json:"employee_no"`
+	EmployeeType    string           `json:"employee_type"`
+	EnName          string           `json:"en_name"`
+	Gender          int              `json:"gender"`
+	IsTenantManager bool             `json:"is_tenant_manager"`
+	JobTitle        string           `json:"job_title"`
+	UnionId         string           `json:"union_id"`
+	OpenId          string           `json:"open_id"`
+	UserId          string           `json:"user_id"`
+	Name            string           `json:"name"`
+	Mobile          string           `json:"mobile"`
+	MobileVisible   bool             `json:"mobile_visible"`
+	Status          UserStatus       `json:"status"`
+	LeaderUserId    string           `json:"leader_user_id"`
+	WorkStation     string           `json:"work_station"`
+	JoinTime        int              `json:"join_time"`
+	Orders          []Order          `json:"orders"`
+	//CustomAttrs     string           `json:"custom_attrs"`
+	EnterpriseEmail string `json:"enterprise_email"`
+	IsFrozen        bool   `json:"is_frozen"`
+}
+
+type UserRestV3Avatar struct {
+	Avatar240    string `json:"avatar_240"`
+	Avatar640    string `json:"avatar_640"`
+	Avatar72     string `json:"avatar_72"`
+	AvatarOrigin string `json:"avatar_origin"`
+	UserId       string `json:"user_id"`
+	Name         string `json:"name"`
+	EmployeeNo   string `json:"employee_no"`
 }
 
 type UserRestInfoVo struct {
