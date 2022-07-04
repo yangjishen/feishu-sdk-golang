@@ -37,6 +37,8 @@ const (
 	ApiDepartmentSimpleList = "https://open.feishu.cn/open-apis/contact/v1/department/simple/list"
 	//获取部门列表 v2
 	ApiDepartmentSimpleListV2 = "https://open.feishu.cn/open-apis/contact/v2/department/simple/list"
+	// 获取部门列表
+	ApiDepartmentSimpleListV3 = "https://open.feishu.cn/open-apis/contact/v3/departments/%s/children"
 
 	//获取部门详情
 	ApiDepartmentInfoGet = "https://open.feishu.cn/open-apis/contact/v1/department/info/get"

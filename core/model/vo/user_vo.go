@@ -49,6 +49,11 @@ type GetDepartmentSimpleListV2RespVo struct {
 	Data *GetDepartmentSimpleListV2RespVoData `json:"data"`
 }
 
+type GetDepartmentSimpleListV3RespVo struct {
+	CommonVo
+	Data *GetDepartmentSimpleListV3RespVoData `json:"data"`
+}
+
 type GetScopeRespVo struct {
 	CommonVo
 	Data *GetScopeRespData `json:"data"`
@@ -85,6 +90,30 @@ type GetDepartmentSimpleListV2RespVoData struct {
 	HasMore         bool                   `json:"has_more"`
 	PageToken       string                 `json:"page_token"`
 	DepartmentInfos []DepartmentRestInfoVo `json:"departments"`
+}
+
+type GetDepartmentSimpleListV3RespVoData struct {
+	HasMore   bool                     `json:"has_more"`
+	PageToken string                   `json:"page_token"`
+	Items     []DepartmentRestV3InfoVo `json:"items"`
+}
+
+type DepartmentRestV3InfoVo struct {
+	Name               string             `json:"name"`
+	ParentDepartmentId string             `json:"parent_department_id"`
+	DepartmentId       string             `json:"department_id"`
+	OpenDepartmentId   string             `json:"open_department_id"`
+	LeaderUserId       string             `json:"leader_user_id"`
+	ChatId             string             `json:"chat_id"`
+	Order              string             `json:"order"`
+	UnitIds            []string           `json:"unit_ids"`
+	MemberCount        int                `json:"member_count"`
+	Status             DepartmentV3Status `json:"status"`
+	CreateGroupChat    bool               `json:"create_group_chat"`
+}
+
+type DepartmentV3Status struct {
+	IsDeleted bool `json:"is_deleted"`
 }
 
 type DepartmentRestInfoVo struct {
