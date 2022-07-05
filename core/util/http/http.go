@@ -4,8 +4,9 @@ import (
 	"bytes"
 	"crypto/tls"
 	"fmt"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/json"
-	"github.com/galaxy-book/feishu-sdk-golang/core/util/log"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/json"
+	"github.com/yangjishen/feishu-sdk-golang/core/util/log"
+
 	"io/ioutil"
 	"net/http"
 	"strings"
