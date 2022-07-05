@@ -74,6 +74,34 @@ func (t Tenant) GetDepartmentSimpleListV2(id string, pageToken string, pageSize 
 	return respVo, nil
 }
 
+//获取子部门列表v3 https://open.feishu.cn/open-apis/contact/v3/departments/:department_id/children
+func (t Tenant) GetDepartmentSimpleListV3(departmentId string, userIdType string, departmentIdType string, pageToken string, pageSize int, fetchChild bool) (*vo.GetDepartmentSimpleListV3RespVo, error) {
+	queryParams := map[string]interface{}{
+		"fetch_child": fetchChild,
+	}
+	if userIdType != "" {
+		queryParams["user_id_type"] = userIdType
+	}
+	if departmentIdType != "" {
+		queryParams["department_id_type"] = departmentIdType
+	}
+	if pageToken != "" {
+		queryParams["page_token"] = pageToken
+	}
+	if pageSize > 0 {
+		queryParams["page_size"] = pageSize
+	}
+
+	respBody, err := http.Get(fmt.Sprintf(consts.ApiDepartmentSimpleListV3, departmentId), queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.GetDepartmentSimpleListV3RespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}
+
 //获取部门详情 https://open.feishu.cn/document/ukTMukTMukTM/uAzNz4CM3MjLwczM
 func (t Tenant) GetDepartmentInfo(departmentId string) (*vo.GetDepartmentInfoRespVo, error) {
 	queryParams := map[string]interface{}{
@@ -300,31 +328,6 @@ func (t Tenant) GetUsersV3(userIdType, departmentIdType, departmentId, pageToken
 		return nil, err
 	}
 	respVo := &vo.GetUsersV3Resp{}
-	json.FromJsonIgnoreError(respBody, respVo)
-	return respVo, nil
-}
-
-//获取子部门列表v3 https://open.feishu.cn/open-apis/contact/v3/departments/:department_id/children
-func (t Tenant) GetDepartmentSimpleListV3(departmentId string, userIdType string, pageToken string, pageSize int, fetchChild bool) (*vo.GetDepartmentSimpleListV3RespVo, error) {
-	queryParams := map[string]interface{}{
-		"fetch_child": fetchChild,
-	}
-	if userIdType != "" {
-		queryParams["user_id_type"] = userIdType
-	}
-	if pageToken != "" {
-		queryParams["page_token"] = pageToken
-	}
-	if pageSize > 0 {
-		queryParams["page_size"] = pageSize
-	}
-
-	respBody, err := http.Get(fmt.Sprintf(consts.ApiUserDetailV3, departmentId), queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
-	if err != nil {
-		log.Error(err)
-		return nil, err
-	}
-	respVo := &vo.GetDepartmentSimpleListV3RespVo{}
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
