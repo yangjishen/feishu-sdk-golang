@@ -199,8 +199,8 @@ const (
 
 //Other Const
 const (
-	TestAppId     = "**********************"
-	TestAppSecret = "******************************"
+	TestAppId     = "cli_a2ed7005ee78500e"
+	TestAppSecret = "pgTpuBe57nILXPn09EakkhHbmMR0HmAl"
 	TestTicket    = "**********************************"
 )
 

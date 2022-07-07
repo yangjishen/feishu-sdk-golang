@@ -155,6 +155,19 @@ func TestTenant_GetDepartmentUserV2List(t *testing.T) {
 	assert.Equal(t, resp.Code, 0)
 }
 
+func TestTenant_GetDepartmentUserV3List(t *testing.T) {
+	resp, err := GetTenantAccessTokenInternal(consts.TestAppId, consts.TestAppSecret)
+	log.Info(json.ToJsonIgnoreError(resp), err)
+	tenant := Tenant{
+		TenantAccessToken: resp.TenantAccessToken,
+	}
+
+	res, err := tenant.GetDepartmentUserListV3("", "department_id", "0", 50, "")
+	log.Info(json.ToJsonIgnoreError(res), err)
+	assert.Equal(t, err, nil)
+	assert.Equal(t, res.Code, 0)
+}
+
 func TestTenant_GetDepartmentUserDetailList(t *testing.T) {
 	app, e := BuildApp(consts.TestAppId, consts.TestAppSecret, consts.TestTicket)
 	t.Log(e)

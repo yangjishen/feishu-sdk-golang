@@ -50,7 +50,7 @@ type UserRestV3InfoVo struct {
 	Description     string           `json:"description"`
 	Email           string           `json:"email"`
 	EmployeeNo      string           `json:"employee_no"`
-	EmployeeType    string           `json:"employee_type"`
+	EmployeeType    int              `json:"employee_type"`
 	EnName          string           `json:"en_name"`
 	Gender          int              `json:"gender"`
 	IsTenantManager bool             `json:"is_tenant_manager"`
