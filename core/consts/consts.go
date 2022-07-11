@@ -158,6 +158,8 @@ const (
 	ApiImChatList = "https://open.feishu.cn/open-apis/im/v1/chats"
 	//获取群信息
 	ApiImChatInfo = "https://open.feishu.cn/open-apis/im/v1/chats/"
+	// 发送消息卡片
+	ApiImMessage = "https://open.feishu.cn/open-apis/im/v1/messages"
 
 	////////群信息和群管理
 	//创建群

@@ -115,3 +115,16 @@ func (t Tenant) ImChatInfo(userAccessToken string, chatId string) (*vo.ImChatInf
 	json.FromJsonIgnoreError(respBody, respVo)
 	return respVo, nil
 }
+
+//获取群信息 https://open.feishu.cn/open-apis/im/v1/messages
+func (t Tenant) ImMessageInfo(ReceiveIdType string, body map[string]interface{}) (*vo.ImMessageInfoRespVo, error) {
+	params := map[string]interface{}{"receive_id_type": ReceiveIdType}
+	respBody, err := http.Post(consts.ApiImMessage, params, json.MapToJson(body), http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	respVo := &vo.ImMessageInfoRespVo{}
+	json.FromJsonIgnoreError(respBody, respVo)
+	return respVo, nil
+}

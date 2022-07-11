@@ -26,3 +26,9 @@ func FromJson(jsonStr string, obj interface{}) error {
 func FromJsonIgnoreError(jsonStr string, obj interface{}) {
 	_ = FromJson(jsonStr, obj)
 }
+
+func MapToJson(param map[string]interface{}) string {
+	dataType, _ := json.Marshal(param)
+	dataString := string(dataType)
+	return dataString
+}

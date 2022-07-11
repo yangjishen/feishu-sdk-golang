@@ -83,3 +83,24 @@ type ImChatInfoData struct {
 	External               bool        `json:"external"`
 	TenantKey              string      `json:"tenant_key"`
 }
+
+type ImMessageInfoRespVo struct {
+	CommonVo
+	Data ImChatInfoData `json:"data"`
+}
+
+type ImMessageInfoData struct {
+	MessageId      string              `json:"message_id"`
+	RootId         string              `json:"root_id"`
+	ParentId       string              `json:"parent_id"`
+	MsgType        string              `json:"msg_type"`
+	CreateTime     string              `json:"create_time"`
+	UpdateTime     string              `json:"update_time"`
+	Deleted        bool                `json:"deleted"`
+	Updated        bool                `json:"updated"`
+	ChatId         string              `json:"chat_id"`
+	Sender         map[string]string   `json:"sender"`
+	Body           map[string]string   `json:"body"`
+	Mentions       []map[string]string `json:"mentions"`
+	UpperMessageId string              `json:"upper_message_id"`
+}
