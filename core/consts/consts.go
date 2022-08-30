@@ -39,6 +39,8 @@ const (
 	ApiDepartmentSimpleListV2 = "https://open.feishu.cn/open-apis/contact/v2/department/simple/list"
 	// 获取部门列表
 	ApiDepartmentSimpleListV3 = "https://open.feishu.cn/open-apis/contact/v3/departments/%s/children"
+	// 获取单个部门信息
+	ApiDepartmentInfoGetV3 = "https://open.feishu.cn/open-apis/contact/v3/departments/%s"
 
 	//获取部门详情
 	ApiDepartmentInfoGet = "https://open.feishu.cn/open-apis/contact/v1/department/info/get"
@@ -66,6 +68,9 @@ const (
 	ApiUserListV3 = "https://open.feishu.cn/open-apis/contact/v3/users"
 	//获取用户详情v3
 	ApiUserDetailV3 = "https://open.feishu.cn/open-apis/contact/v3/users/%s"
+
+	// 获取通讯录授权范围
+	ApiContactScopes = "https://open.feishu.cn/open-apis/contact/v3/scopes"
 
 	//////////////////机器人发送消息
 	//机器人发送消息
@@ -201,9 +206,9 @@ const (
 
 //Other Const
 const (
-	TestAppId     = "cli_a2ed7005ee78500e"
-	TestAppSecret = "pgTpuBe57nILXPn09EakkhHbmMR0HmAl"
-	TestTicket    = "**********************************"
+	TestAppId     = "cli_************"
+	TestAppSecret = "****************"
+	TestTicket    = "****************"
 )
 
 const (

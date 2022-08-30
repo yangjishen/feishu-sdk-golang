@@ -104,6 +104,15 @@ type GetDepartmentSimpleListV3RespVo struct {
 	Data *GetDepartmentSimpleListV3RespVoData `json:"data"`
 }
 
+type GetDepartmentInfoV3RespVo struct {
+	CommonVo
+	Data *GetDepartmentInfoV3RespVoData `json:"data"`
+}
+
+type GetDepartmentInfoV3RespVoData struct {
+	Department *DepartmentRestV3InfoVo `json:"department"`
+}
+
 type GetScopeRespVo struct {
 	CommonVo
 	Data *GetScopeRespData `json:"data"`

@@ -10,8 +10,8 @@ type GetScopesRespData struct {
 }
 
 type GetScopesRespDataScopes struct {
-	ScopeName string `json:"scope_name"`
-	GrantStatus int `json:"grant_status"`
+	ScopeName   string `json:"scope_name"`
+	GrantStatus int    `json:"grant_status"`
 }
 
 type ApplyScopesResp struct {
@@ -20,5 +20,17 @@ type ApplyScopesResp struct {
 }
 
 type ApplyScopesRespData struct {
+}
 
+type GetContactScopesResp struct {
+	CommonVo
+	Data *GetContactScopesRespData `json:"data"`
+}
+
+type GetContactScopesRespData struct {
+	DepartmentIds []string `json:"department_ids"`
+	UserIds       []string `json:"user_ids"`
+	GroupIds      []string `json:"group_ids"`
+	HasMore       bool     `json:"has_more"`
+	PageToken     string   `json:"page_token"`
 }

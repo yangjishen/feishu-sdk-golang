@@ -41,3 +41,20 @@ func GetTenant(outOrgId string) *Tenant {
 	}
 	return tenant
 }
+
+func TestTenant_GetContactScopes(t *testing.T) {
+	app, e := GetAppAccessTokenInternal(consts.TestAppId, consts.TestAppSecret)
+	if e != nil {
+		log.Error(e)
+	}
+	tenant := Tenant{
+		TenantAccessToken: app.AppAccessToken,
+	}
+	log.Info("--------------------------------", tenant.TenantAccessToken)
+	resp, err := tenant.GetContactScopes("", "", 0, "")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	log.Info(json.ToJsonIgnoreError(resp))
+}
