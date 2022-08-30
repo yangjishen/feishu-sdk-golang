@@ -422,7 +422,7 @@ type GetUserBatchError struct {
 }
 
 type GetUserDetailV3RespData struct {
-	User UserDetailInfoV3 `json:"user"`
+	User UserRestV3InfoVo `json:"user"`
 }
 
 type GetUserDetailV3Resp struct {

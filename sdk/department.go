@@ -103,7 +103,7 @@ func (t Tenant) GetDepartmentSimpleListV3(departmentId string, userIdType string
 }
 
 //获取部门详情 https://open.feishu.cn/open-apis/contact/v3/departments/:department_id
-func (t Tenant) GetDepartmentInfoV3(userIdType string, departmentIdType string) (*vo.GetDepartmentInfoV3RespVo, error) {
+func (t Tenant) GetDepartmentInfoV3(id string, userIdType string, departmentIdType string) (*vo.GetDepartmentInfoV3RespVo, error) {
 	queryParams := map[string]interface{}{}
 	if userIdType != "" {
 		queryParams["user_id_type"] = userIdType
@@ -111,7 +111,7 @@ func (t Tenant) GetDepartmentInfoV3(userIdType string, departmentIdType string) 
 	if departmentIdType != "" {
 		queryParams["department_id_type"] = departmentIdType
 	}
-	respBody, err := http.Get(consts.ApiDepartmentInfoGetV3, queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
+	respBody, err := http.Get(fmt.Sprintf(consts.ApiDepartmentInfoGetV3, id), queryParams, http.BuildTokenHeaderOptions(t.TenantAccessToken))
 	if err != nil {
 		log.Error(err)
 		return nil, err
